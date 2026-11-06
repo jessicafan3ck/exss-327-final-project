@@ -1,0 +1,10 @@
+outcome,model,label,trend_per_yr,trend_se,trend_p,trend_unit,joint_p_2018_2023,verdict
+fg_made,linear,FG made (distance-adjusted),-0.676522091904615,0.612825283461708,0.2696869140148,pp/yr,0.226319515807339,no evidence against parallel
+fg_made,logit,FG made (distance-adjusted),-0.0325616637231243,0.0483062403619753,0.500268439501903,log-odds/yr,0.232552602251365,no evidence against parallel
+att_dist,linear,Attempt distance,-0.121531218111141,0.179009067447117,0.497234247465485,yds/yr,0.250512438239721,no evidence against parallel
+att_50plus,linear,Share of attempts 50+ yds,0.860216533676899,0.67013522573501,0.199341437870127,pp/yr,0.0124442075995372,WARNING
+att_50plus,logit,Share of attempts 50+ yds,-0.0125672860447437,0.0471016171232414,0.789613761145851,log-odds/yr,0.0659141656853956,no evidence against parallel
+kick_4th,linear,"Kick on 4th down (FG range, <=5 to go)",-0.383192925774481,0.680938185601177,0.573646410000736,pp/yr,0.35208741174723,no evidence against parallel
+kick_4th,logit,"Kick on 4th down (FG range, <=5 to go)",-0.0563829733788222,0.10035659691372,0.574234385902861,log-odds/yr,0.206972165788437,no evidence against parallel
+go_4th,linear,"Go for it on 4th down (FG range, <=5 to go)",0.665017535149166,1.03288771665026,0.519719657507029,pp/yr,0.872872806758552,no evidence against parallel
+go_4th,logit,"Go for it on 4th down (FG range, <=5 to go)",0.0387435207492073,0.0594593207210939,0.514661121210342,log-odds/yr,0.84403880329587,no evidence against parallel

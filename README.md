@@ -11,21 +11,22 @@ the 2025 K-ball rule change, using college football (FBS) as the control group.
 - [x] Step 2: College play-by-play downloaded (2018-2025); data questions resolved (see below)
 - [x] Step 3: Cleaned, harmonized tables in `data/clean/` and `outputs/data_quality_report.md`
 - [x] Step 4a: Descriptive tables (`outputs/tables/desc_*.csv`) and figures (`outputs/figures/`)
-- [ ] Step 4b: Parallel-trends check
+- [x] Step 4b: Parallel-trends check (`outputs/pretrends_report.md`, fig6): no outcome clearly non-parallel; warning on 50+ share
 - [ ] Step 5: Models (accuracy, distance, strategy, within-kicker) + robustness
 - [ ] Step 6: Figures, tables, written summary
 
 ## Reproduce
 
 Requires R (developed on 4.5.1) with these packages (versions used):
-`data.table` 1.17.8, `arrow` 25.0.1, `ggplot2` 4.0.1, `knitr` 1.50, `R.utils` 2.13.0.
+`data.table` 1.17.8, `arrow` 25.0.1, `ggplot2` 4.0.1, `knitr` 1.50, `R.utils` 2.13.0, `fixest` 0.13.2.
 
 ```bash
-Rscript -e 'install.packages(c("data.table", "arrow", "ggplot2", "knitr", "R.utils"))'
+Rscript -e 'install.packages(c("data.table", "arrow", "ggplot2", "knitr", "R.utils", "fixest"))'
 Rscript --vanilla src/01_download_nfl.R 2018 2025   # ~150 MB, nflverse GitHub releases
 Rscript --vanilla src/01_download_cfb.R 2018 2025   # ~740 MB, sportsdataverse GitHub releases
 Rscript --vanilla src/02_clean.R                    # data/clean/*.csv + outputs/data_quality_report.md
 Rscript --vanilla src/03_descriptives.R             # outputs/tables/desc_*.csv + outputs/figures/
+Rscript --vanilla src/04_pretrends.R                # parallel-trends check (pre-period data only)
 ```
 
 Run from anywhere; scripts locate the project folder themselves.
@@ -38,7 +39,7 @@ No CollegeFootballData API key is needed: the college data comes from the pre-bu
 ```
 data/raw/      downloaded play-by-play (gitignored)
 data/clean/    fg_attempts.csv, fourth_down_decisions.csv
-src/           01_download_*.R, 02_clean.R, 03_descriptives.R, plot_style.R
+src/           01_download_*.R, 02_clean.R, 03_descriptives.R, 04_pretrends.R, plot_style.R
 outputs/       data_quality_report.md, figures/, tables/
 ```
 

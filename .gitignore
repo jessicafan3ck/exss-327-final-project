@@ -1,8 +1,8 @@
-# raw downloads are large and re-creatable with src/01_download_*.py
+# raw downloads are large and re-creatable with src/01_download_*.R
 data/raw/
-.venv/
-__pycache__/
-*.pyc
+*.part
+.Rhistory
+.RData
+.Rproj.user/
 .DS_Store
 .env
-*.part

@@ -21,6 +21,8 @@ pre_seasons <- 2021:2024
 
 fg <- fread(file.path(clean_dir, "fg_attempts.csv"), colClasses = list(character = c("game_id", "kicker_id")))
 fd <- fread(file.path(clean_dir, "fourth_down_decisions.csv"), colClasses = list(character = "game_id"))
+fg <- fg[season <= 2025]  # partial 2026 season is handled separately (exploratory)
+fd <- fd[season <= 2025]
 fg[, dist_bin := cut(kick_distance, c(0, 30, 40, 50, 60, 100), right = FALSE, labels = bin_labels)]
 fg[, period := fcase(season %in% pre_seasons, "pre 2021-24", season == 2025, "post 2025", default = "other")]
 

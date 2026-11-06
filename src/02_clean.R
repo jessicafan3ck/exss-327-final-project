@@ -1,8 +1,8 @@
 # Clean NFL (nflverse) and college (cfbfastR) play-by-play into two harmonized tables.
 #
 # Outputs (data/clean/):
-#   fg_attempts.csv            one row per FG attempt, both leagues, 2018-2025
-#   fourth_down_decisions.csv  one row per 4th-down pass/run/punt/FG decision, both leagues, 2018-2025
+#   fg_attempts.csv            one row per FG attempt, both leagues, 2018-2026
+#   fourth_down_decisions.csv  one row per 4th-down pass/run/punt/FG decision, both leagues, 2018-2026
 # and outputs/data_quality_report.md.
 #
 # Rules follow section 7 of the project brief. Decisions not fixed by the brief are marked DECISION.
@@ -19,13 +19,13 @@ root <- dirname(script_dir)
 raw_dir <- file.path(root, "data", "raw")
 clean_dir <- file.path(root, "data", "clean")
 out_dir <- file.path(root, "outputs")
-seasons <- 2018:2025
-post_season <- 2025
+seasons <- 2018:2026  # 2026 is a partial season, flagged and used for exploratory checks only
+post_season <- 2025   # the single post (treated) season
 
 schema <- c("league", "season", "week", "game_id", "play_id", "team", "kicker_id", "kicker_name",
             "kick_distance", "made", "blocked", "down", "ydstogo", "yardline_100", "score_diff", "wp",
             "game_seconds_remaining", "decision", "play_type_raw", "dome", "temp", "wind",
-            "post", "nfl", "covid_season")
+            "post", "nfl", "covid_season", "partial_season")
 
 # ---------------------------------------------------------------------------- NFL
 nfl_cols <- c("play_id", "game_id", "season", "season_type", "week", "posteam", "play_type", "down",
@@ -131,8 +131,8 @@ load_cfb <- function() {
 
 # ---------------------------------------------------------------------------- Build
 finalize <- function(d) {
-  d[, `:=`(post = as.integer(season >= post_season), nfl = as.integer(league == "NFL"),
-           covid_season = as.integer(season == 2020))]
+  d[, `:=`(post = as.integer(season == post_season), nfl = as.integer(league == "NFL"),
+           covid_season = as.integer(season == 2020), partial_season = as.integer(season == 2026))]
   d
 }
 

@@ -87,10 +87,31 @@ NFL-specific distance effect grows to +0.7 yds [-0.1, +1.6] (p = 0.10) and the 5
 2025; mean distance is 41.1 vs 41.3 yds. The longer kicks have persisted, but there is no sign of a further
 accuracy gain, consistent with the Chicago Sun-Times observation that 2026 is not matching 2025.
 
+## How unusual is 2025? Placebo years and bootstrap (fig. 11)
+
+Because there is only one post season, we checked how much the NFL-minus-college gap moves in ordinary
+years. We treated each season 2018-2024 as a fake rule year (compared with the other pre-2025 seasons)
+and compared the real 2025 estimate with these seven placebo estimates:
+- **2025 does not stand out on any outcome.** For accuracy, 2025 (+0.2 pp) is the *smallest* of the eight
+  estimates in absolute size. For distance, 2025 (+0.4 yds) ranks 3rd of 8; 2022 was larger (+1.0 yds).
+  Permutation p-values range from 0.38 to 1.00.
+- **Ordinary seasons swing more than our confidence intervals assume.** Estimates vary 1.2-1.5 times more
+  across seasons than game-clustered standard errors imply. For example, 4 of 35 placebo estimates look
+  "significant" even though no rule changed. Using the season-to-season spread instead gives wider ranges
+  for 2025, e.g. accuracy -3.3 to +3.7 pp and distance -0.6 to +1.5 yds. This strengthens the null result:
+  even a borderline "significant" 2025 estimate would not have been convincing.
+- **The bootstrap gives the same answer.** Resampling games (999 replications) gives intervals almost identical
+  to the model-based ones, e.g. accuracy -2.4 to +2.1 pp and distance -0.4 to +1.3 yds, so those were not the
+  weak point. Season-level variation was.
+
+We did not use cross-validation. It measures prediction accuracy, and our question is an estimate of a
+single effect, not a prediction.
+
 ## Limitations
 
 - **One post season.** Effects are estimated from a single season; small effects (and anything at 60+ yds) are
-  hard to detect.
+  hard to detect. Placebo years show ordinary seasons vary more than standard errors assume (see above),
+  and with seven placebo seasons, a permutation test can never reach p < 0.05 (minimum p = 0.125).
 - **College as a control assumes similar trends without the rule.** Pre-trends looked parallel, but the tests
   have limited power (4-7 seasons), and NFL and college differ in talent, hash marks and coaching choices.
   Any college-specific change in 2025 would bias the comparison.
@@ -102,10 +123,10 @@ accuracy gain, consistent with the Chicago Sun-Times observation that 2026 is no
 - **Attempt distance is a coaching choice** as well as a measure of kicker ability.
 - **Survivorship.** The same-kicker check includes only kickers who stayed in the league, and has no control group.
 - **Observational data** cannot prove causation. The four hypotheses were planned in advance; robustness,
-  placebo and 2026 results are exploratory.
+  placebo-year, bootstrap and 2026 results are exploratory.
 
 ## Reproducibility
 
 All code is in `src/` (R) and runs from raw downloads to these results. Cleaning decisions are listed in
-`README.md`; full tables are in `outputs/data_quality_report.md`, `outputs/pretrends_report.md` and
+`README.md`; full tables are in `outputs/data_quality_report.md`, `outputs/pretrends_report.md`, `outputs/inference_report.md` and
 `outputs/models_report.md`; figures are in `outputs/figures/`.

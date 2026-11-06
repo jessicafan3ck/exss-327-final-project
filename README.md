@@ -20,6 +20,8 @@ much, so there is no detectable NFL-specific (K-ball) effect; modest effects on 
 - [x] Step 5: Models (DiD accuracy/distance/strategy, by distance bin, within-kicker) + robustness
   (`outputs/models_report.md`, `outputs/tables/model_*.csv`)
 - [x] Step 6: Result figures (figs 7-10) and written summary (`outputs/summary.md`)
+- [x] Extra inference for the single post season: placebo-year permutation test and game-cluster bootstrap
+  (`outputs/inference_report.md`, fig 11)
 
 ## Reproduce
 
@@ -36,6 +38,7 @@ Rscript --vanilla src/03_descriptives.R             # outputs/tables/desc_*.csv 
 Rscript --vanilla src/04_pretrends.R                # parallel-trends check (pre-period data only), fig 6
 Rscript --vanilla src/05_models.R                   # all models -> outputs/models_report.md
 Rscript --vanilla src/06_figures.R                  # result figures 7-10
+Rscript --vanilla src/07_inference.R 999            # placebo years + bootstrap (~2 min), fig 11
 ```
 
 Run from anywhere; scripts locate the project folder themselves. 2026 is a partial season (in progress);
@@ -49,8 +52,8 @@ No CollegeFootballData API key is needed: the college data comes from the pre-bu
 ```
 data/raw/      downloaded play-by-play (gitignored)
 data/clean/    fg_attempts.csv, fourth_down_decisions.csv
-src/           01_download_*.R, 02_clean.R, 03_descriptives.R, 04_pretrends.R, 05_models.R, 06_figures.R, plot_style.R
-outputs/       summary.md, data_quality_report.md, pretrends_report.md, models_report.md, figures/, tables/
+src/           01_download_*.R, 02_clean.R ... 07_inference.R; shared helpers model_setup.R, plot_style.R
+outputs/       summary.md, data_quality_report.md, pretrends_report.md, models_report.md, inference_report.md, figures/, tables/
 ```
 
 ## Clean tables

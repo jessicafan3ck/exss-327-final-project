@@ -6,6 +6,7 @@ Difference-in-differences comparison of NFL field-goal accuracy, distance and 4t
 the 2025 K-ball rule change, using college football (FBS) as the control group.
 
 **Start here: [`outputs/summary.md`](outputs/summary.md)** (written summary answering RQ1-RQ4).
+For slides: [`outputs/presentation_brief.md`](outputs/presentation_brief.md) (slide plan, figure choices and exact chart data).
 
 **Finding in one line:** NFL kicks got longer in 2025 and accuracy rose slightly, but college improved about as
 much, so there is no detectable NFL-specific (K-ball) effect; modest effects on distance can't be ruled out.

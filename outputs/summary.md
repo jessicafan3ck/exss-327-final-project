@@ -32,7 +32,7 @@ K-ball effect, though modest effects on distance cannot be ruled out.
 | NFL, 2025 vs 2021-24 | Change [95% CI] |
 |---|---|
 | Attempt distance | **+1.3 yds** [+0.5, +2.0], p = 0.001 |
-| Share of attempts from 50+ yds | **+3.0 pp** [+0.1, +5.9], p = 0.04 |
+| Share of attempts from 50+ yds | **+3.0 pp** [+0.1, +5.8], p = 0.04 |
 | Make rate, distance-adjusted | +1.9 pp [-0.2, +4.1], p = 0.08 |
 | Make rate, raw | +0.6 pp [-1.7, +2.8], p = 0.62 |
 
@@ -40,7 +40,7 @@ Raw accuracy barely moved because kickers attempted longer kicks. 60+ yard attem
 compared with 18/46 across all four seasons 2021-24, but 22 kicks is too few to draw conclusions from.
 
 **RQ2: Was the NFL's change larger than college's?** No. College also improved:
-distance-adjusted make rate +2.9 pp [+1.1, +4.6] and attempt distance +0.9 yds [+0.4, +1.3] (fig. 7).
+distance-adjusted make rate +2.8 pp [+1.1, +4.6] and attempt distance +0.9 yds [+0.4, +1.3] (fig. 7).
 The NFL-minus-college estimates:
 
 | NFL-specific 2025 effect (DiD) | Estimate [95% CI] | p (Holm-adjusted, 5 planned tests) |
@@ -62,7 +62,7 @@ aggressiveness rather than a response to better kicking.
 only 22 NFL and 7 college attempts in 2025, so it cannot answer the question either way.
 
 **Same-kicker check (NFL only).** For 27 kickers with 15+ attempts both before and in 2025, accuracy
-relative to expectation did not change (+0.0 pp [-2.9, +2.9]), but they kicked from 1.4 yds farther
+relative to expectation did not change (+0.0 pp [-2.8, +2.9]), but they kicked from 1.4 yds farther
 on average [+0.5, +2.3]; 78% kicked longer (fig. 10). Results are the same at 10 and 20 attempt thresholds.
 So the same kickers attempted longer kicks without making them at a higher-than-expected rate.
 
@@ -95,10 +95,11 @@ and compared the real 2025 estimate with these seven placebo estimates:
 - **2025 does not stand out on any outcome.** For accuracy, 2025 (+0.2 pp) is the *smallest* of the eight
   estimates in absolute size. For distance, 2025 (+0.4 yds) ranks 3rd of 8; 2022 was larger (+1.0 yds).
   Permutation p-values range from 0.38 to 1.00.
-- **Ordinary seasons swing more than our confidence intervals assume.** Estimates vary 1.2-1.5 times more
-  across seasons than game-clustered standard errors imply. For example, 4 of 35 placebo estimates look
-  "significant" even though no rule changed. Using the season-to-season spread instead gives wider ranges
-  for 2025, e.g. accuracy -3.3 to +3.7 pp and distance -0.6 to +1.5 yds. This strengthens the null result:
+- **Ordinary seasons swing more than our confidence intervals assume.** For four of the five outcomes,
+  estimates vary 1.2-1.5 times more across seasons than game-clustered standard errors imply (4th-down
+  go-for-it is the exception). For example, 4 of 35 placebo estimates look "significant" even though no
+  rule changed. Using the season-to-season spread instead gives wider ranges for 2025, e.g. accuracy
+  -3.3 to +3.6 pp and distance -0.6 to +1.4 yds. This strengthens the null result:
   even a borderline "significant" 2025 estimate would not have been convincing.
 - **The bootstrap gives the same answer.** Resampling games (999 replications) gives intervals almost identical
   to the model-based ones, e.g. accuracy -2.4 to +2.1 pp and distance -0.4 to +1.3 yds, so those were not the
